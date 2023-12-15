@@ -69,12 +69,12 @@ const questions = [
     message: "Please provide test instructions for your project.",
   },];
 
-// TODO: Create a function to write README file
+// Creating a function to write README file
 function writeFile(fileName, data) {
     return fs.writeFileSync(fileName, data, "utf-8", (error) => error? console.error(error):console.log("Sucess!"));
 }
 
-// TODO: Create a function to initialize app
+// Creating a function to initialize app
 function init() {
     inquirer.prompt(questions)
     .then ((answers) => {

@@ -1,2 +1,2 @@
-# glokhfl\
+# readme generator
 
