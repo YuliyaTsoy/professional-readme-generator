@@ -11,7 +11,7 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license !== "none") {
-    return `* [License](#license)`;
+    return `[License](#license)`;
   }
   return "";
 }
@@ -21,9 +21,7 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if (license !== "none") {
     return `## License
-    This project is licensed under [${license}](${renderLicenseLink(
-      license
-    )}).`;
+    This project is licensed under ${license}`;
   }
   return "";
 }
@@ -58,7 +56,6 @@ function generateMarkdown(data) {
   ${data.contributors}
   ## Testing
   ${data.test}
-  ## License
   ${renderLicenseSection(data.license)}
   ## Questions
   Please send your questions [here](mailto:${
