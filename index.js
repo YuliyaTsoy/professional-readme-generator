@@ -1,9 +1,11 @@
 // Including packages needed for this application
+// DEPENDANCIES:
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 // Creating an array of questions for user input
+// DATA
 const questions = [
   {
     type: "input",
@@ -71,6 +73,7 @@ const questions = [
 ];
 
 // Creating a function to write README file
+// HELPER FUNCTIONS:
 function writeFile(fileName, data) {
   return fs.writeFileSync(fileName, data, "utf-8", (error) =>
     error ? console.error(error) : console.log("Sucess!")
@@ -86,4 +89,5 @@ function init() {
 }
 
 // Function call to initialize app
+// INITIALIZATION:
 init();

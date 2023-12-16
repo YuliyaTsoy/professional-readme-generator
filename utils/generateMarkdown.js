@@ -29,7 +29,7 @@ function renderLicenseSection(license) {
 // Creating a function to generate markdown for README
 function generateMarkdown(data) {
 
-  // using template literal:
+  // using template literal to populate user's input data:
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
   
