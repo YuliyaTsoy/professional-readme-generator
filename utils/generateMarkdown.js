@@ -10,50 +10,28 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  let badge = "";
-  let links = "";
-
-  switch (license) {
-    case "MIT":
-      badge = "";
-      links = "https://opensource.org/license/mit/";
-      break;
-    case "APACHE2.0":
-      badge = "";
-      links = "https://opensource.org/license/apache-2-0/";
-      break;
-    case "Boost1.0":
-      badge = "";
-      links = "https://www.boost.org/LICENSE_1_0.txt";
-      break;
-    case "MPL2.0":
-      badge = "";
-      links = "https://opensource.org/licenses/MPL-2.0";
-      break;
-    case "BSD2":
-      badge = "";
-      links = "https://opensource.org/licenses/BSD-2-Clause";
-      break;
-    case "BSD3":
-      badge = "";
-      links = "https://opensource.org/licenses/BSD-3-Clause";
-      break;
-    default:
-      badge = "";
+  if (license !== "none") {
+    return `* [License](#license)`;
   }
-
-  return badge + (links ? "\n\n" + links:links);
+  return "";
 }
 
-// TODO: Create a function that returns the license section of README
+// Creating a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license !== "none") {
+    return `## License
+    This project is licensed under [${license}](${renderLicenseLink(
+      license
+    )}).`;
+  }
+  return "";
+}
 
-// TODO: Create a function to generate markdown for README
+// Creating a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
-  ${renderLicenseLink(data.link)}
   
   ## Description
   ${data.description}
@@ -67,7 +45,9 @@ function generateMarkdown(data) {
   * [How to Use This Application](#HowtoUseThisApplication)
   * [Contributors](#contributors)
   * [Testing](#testing)
+  * ${renderLicenseLink(data.license)}
   * [Questions](#questions)
+  
   ## Features
   ${data.features}
   ## Languages & Dependencies
@@ -78,6 +58,8 @@ function generateMarkdown(data) {
   ${data.contributors}
   ## Testing
   ${data.test}
+  ## License
+  ${renderLicenseSection(data.license)}
   ## Questions
   Please send your questions [here](mailto:${
     data.email
