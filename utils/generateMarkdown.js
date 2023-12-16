@@ -1,4 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// Creating a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license !== "none") {
@@ -7,7 +7,7 @@ function renderLicenseBadge(license) {
   return "";
 }
 
-// TODO: Create a function that returns the license link
+// Creating a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license !== "none") {
@@ -28,6 +28,8 @@ function renderLicenseSection(license) {
 
 // Creating a function to generate markdown for README
 function generateMarkdown(data) {
+
+  // using template literal:
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
   
@@ -39,8 +41,8 @@ function generateMarkdown(data) {
   ![alt-text](${data.screenshot})
   ## Table of Contents
   * [Features](#features)
-  * [Languages & Dependencies](#languagesanddependencies)
-  * [How to Use This Application](#HowtoUseThisApplication)
+  * [Languages & Dependencies](#languages-and-dependencies)
+  * [How to Use This Application](#how-to-use-this-application)
   * [Contributors](#contributors)
   * [Testing](#testing)
   * ${renderLicenseLink(data.license)}
@@ -49,9 +51,9 @@ function generateMarkdown(data) {
   
   ## Features
   ${data.features}
-  ## Languages & Dependencies
+  ## Languages and Dependencies
   ${data.require}
-  ## How to Use This Application:
+  ## How to Use This Application
   ${data.usage}
   ## Contributors
   ${data.contributors}

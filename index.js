@@ -80,7 +80,7 @@ function writeFile(fileName, data) {
 // Creating a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
-    // console.log ("Success! README.md file has been created!");
+   
     writeFile("README.md", generateMarkdown({ ...answers }));
   });
 }
