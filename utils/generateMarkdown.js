@@ -9,7 +9,41 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  let badge = "";
+  let links = "";
+
+  switch (license) {
+    case "MIT":
+      badge = "";
+      links = "https://opensource.org/license/mit/";
+      break;
+    case "APACHE2.0":
+      badge = "";
+      links = "https://opensource.org/license/apache-2-0/";
+      break;
+    case "Boost1.0":
+      badge = "";
+      links = "https://www.boost.org/LICENSE_1_0.txt";
+      break;
+    case "MPL2.0":
+      badge = "";
+      links = "https://opensource.org/licenses/MPL-2.0";
+      break;
+    case "BSD2":
+      badge = "";
+      links = "https://opensource.org/licenses/BSD-2-Clause";
+      break;
+    case "BSD3":
+      badge = "";
+      links = "https://opensource.org/licenses/BSD-3-Clause";
+      break;
+    default:
+      badge = "";
+  }
+
+  return badge + (links ? "\n\n" + links:links);
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -20,7 +54,7 @@ function generateMarkdown(data) {
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
   ${renderLicenseLink(data.link)}
-  ${renderLicenseSection(data.section)}
+  
   ## Description
   ${data.description}
   ## Deployed Application URL
@@ -45,7 +79,11 @@ function generateMarkdown(data) {
   ## Testing
   ${data.test}
   ## Questions
-  Please send your questions [here](mailto:${data.email}?subject=[GitHub]%20Dev%20Connect) or visit [github/${data.creator}](https://github.com/${data.creator}).
+  Please send your questions [here](mailto:${
+    data.email
+  }?subject=[GitHub]%20Dev%20Connect) or visit [github/${
+    data.creator
+  }](https://github.com/${data.creator}).
 `;
 }
 
